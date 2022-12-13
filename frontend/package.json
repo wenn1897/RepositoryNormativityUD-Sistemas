@@ -1,0 +1,17 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "interfaz web para busqueda de normativas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vista",
+    "archivo",
+    "reporte",
+    "busqueda"
+  ],
+  "author": "wenn1897",
+  "license": "ISC"
+}

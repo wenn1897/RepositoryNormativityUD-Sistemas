@@ -1,0 +1,33 @@
+
+@api = http://localhost:3000/normas
+
+### Get all normas
+GET {{api}}
+
+
+### Add new norma
+POST {{api}}
+Content-Type: application/json
+
+{
+    "id" : 10004,
+    "numero_norma": "10011",
+    "tipo_norma": 2,
+    "tema": "prueba 1",
+    "actor": "1,2,3",
+    "fecIni" : "24/12/2022",
+    "fecFin": ""
+}
+
+
+### get specific norma
+GET {{api}}/10004
+
+
+### update validity norma by id
+PUT {{api}}/10004
+Content-Type: application/json
+
+{
+    "fecFin": "01/01/2023"
+}
