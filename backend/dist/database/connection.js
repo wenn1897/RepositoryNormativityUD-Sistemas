@@ -37,21 +37,23 @@ function _getConnection() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            _context.next = 3;
+            console.log("intentando conectar");
+            _context.next = 4;
             return _mssql["default"].connect(dbSettings);
-          case 3:
+          case 4:
             pool = _context.sent;
             return _context.abrupt("return", pool);
-          case 7:
-            _context.prev = 7;
+          case 8:
+            _context.prev = 8;
             _context.t0 = _context["catch"](0);
+            console.log("PAILA TODO MAL");
             console.error(_context.t0);
-          case 10:
+          case 12:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 7]]);
+    }, _callee, null, [[0, 8]]);
   }));
   return _getConnection.apply(this, arguments);
 }

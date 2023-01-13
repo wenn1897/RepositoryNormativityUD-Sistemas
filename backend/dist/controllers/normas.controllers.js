@@ -4,7 +4,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateValidityNorma = exports.getNormasById = exports.getNormas = exports.createNewNorma = void 0;
+exports.updateValidityNorma = exports.getNormasById = exports.getNormas = exports.getByWordKey = exports.createNewNorma = void 0;
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 var _connection = require("../database/connection");
@@ -160,3 +160,42 @@ var updateValidityNorma = /*#__PURE__*/function () {
   };
 }();
 exports.updateValidityNorma = updateValidityNorma;
+var getByWordKey = /*#__PURE__*/function () {
+  var _ref5 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(req, res) {
+    var name, pool, result;
+    return _regenerator["default"].wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            _context5.prev = 0;
+            name = req.body.name;
+            console.log(name + "aaaaaaaaaa");
+            _context5.next = 5;
+            return (0, _connection.getConnection)();
+          case 5:
+            pool = _context5.sent;
+            _context5.next = 8;
+            return pool.request().input("name", _connection.sql.VarChar, name).query(_querys.queries.getNormaByName);
+          case 8:
+            result = _context5.sent;
+            res.json(result);
+            console.log('query:' + _querys.queries.getNormaByName);
+            _context5.next = 17;
+            break;
+          case 13:
+            _context5.prev = 13;
+            _context5.t0 = _context5["catch"](0);
+            res.status(500);
+            res.send(_context5.t0.message);
+          case 17:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5, null, [[0, 13]]);
+  }));
+  return function getByWordKey(_x9, _x10) {
+    return _ref5.apply(this, arguments);
+  };
+}();
+exports.getByWordKey = getByWordKey;

@@ -14,15 +14,14 @@ const dbSettings = {
 
 export async function getConnection() {
     try {
+        console.log("intentando conectar")
         const pool = await sql.connect(dbSettings);
         return pool;
         
     } catch (error) {
+        console.log("PAILA TODO MAL")
         console.error(error);
     }
-
-    // const result = await sql.query('Select 1');
-    // console.log(result);
 }
 
 //getConnection();

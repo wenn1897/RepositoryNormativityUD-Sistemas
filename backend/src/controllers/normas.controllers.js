@@ -76,3 +76,25 @@ export const updateValidityNorma = async (req, res) => {
         res.send(error.message);
     }
 }
+
+
+export const getByWordKey = async (req,res) => {
+
+    try {
+        const {name} = req.body;
+        console.log(name + "aaaaaaaaaa")
+
+        const pool = await getConnection();
+        const result = await pool.request()
+        .input("name", sql.VarChar, name)
+        .query(queries.getNormaByName)
+
+        res.json(result)
+
+        console.log('query:' + queries.getNormaByName)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+    
+}
