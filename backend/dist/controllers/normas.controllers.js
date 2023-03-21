@@ -169,30 +169,29 @@ var getByWordKey = /*#__PURE__*/function () {
           case 0:
             _context5.prev = 0;
             name = req.body.name;
-            console.log(name + "aaaaaaaaaa");
-            _context5.next = 5;
+            _context5.next = 4;
             return (0, _connection.getConnection)();
-          case 5:
+          case 4:
             pool = _context5.sent;
-            _context5.next = 8;
+            _context5.next = 7;
             return pool.request().input("name", _connection.sql.VarChar, name).query(_querys.queries.getNormaByName);
-          case 8:
+          case 7:
             result = _context5.sent;
             res.json(result);
             console.log('query:' + _querys.queries.getNormaByName);
-            _context5.next = 17;
+            _context5.next = 16;
             break;
-          case 13:
-            _context5.prev = 13;
+          case 12:
+            _context5.prev = 12;
             _context5.t0 = _context5["catch"](0);
             res.status(500);
             res.send(_context5.t0.message);
-          case 17:
+          case 16:
           case "end":
             return _context5.stop();
         }
       }
-    }, _callee5, null, [[0, 13]]);
+    }, _callee5, null, [[0, 12]]);
   }));
   return function getByWordKey(_x9, _x10) {
     return _ref5.apply(this, arguments);

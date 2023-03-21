@@ -37,7 +37,7 @@ function _getConnection() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            console.log("intentando conectar");
+            console.log("Conectando...");
             _context.next = 4;
             return _mssql["default"].connect(dbSettings);
           case 4:

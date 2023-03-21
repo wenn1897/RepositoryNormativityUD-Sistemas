@@ -82,14 +82,13 @@ export const getByWordKey = async (req,res) => {
 
     try {
         const {name} = req.body;
-        console.log(name + "aaaaaaaaaa")
 
         const pool = await getConnection();
         const result = await pool.request()
         .input("name", sql.VarChar, name)
         .query(queries.getNormaByName)
 
-        res.json(result)
+        res.json(result.recordsets[0])
 
         console.log('query:' + queries.getNormaByName)
     } catch (error) {

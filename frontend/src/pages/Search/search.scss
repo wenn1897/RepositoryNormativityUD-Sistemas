@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5; 
+}
+
+.container-header{
+    width: 100%;
+    display: inline-flex;
+    background-color: rgb(189, 7, 7);
+}
+
+.div-image{
+    width: 7rem;
+    margin-right: 3rem;
+}
+
+.div-image img{
+    width: 6rem;
+    height: 6rem;
+    
+    position: relative;
+    bottom: 0.3rem;
+    left:2rem;
+}
+
+.input-word{
+    width: 65%;
+    margin: 1.5rem 1rem;
+}
+
+.input-word input{
+    height:100%;
+    width: 100%;
+    padding-left: 1rem;
+    border-radius: 0.2rem;
+    border:0;
+}
+
+.btnSearch{
+    width: 10%;
+    margin: 1.5rem 2rem;
+}
+
+.btnSearch button{
+    width: 100%;
+    border-radius: 0.2rem;
+    border:0;
+
+    position: relative;
+    top:0.5rem;
+}
+
+.loading{
+    position:relative;
+    top:1rem;
+    left:1rem;
+    z-index: -1;
+}
