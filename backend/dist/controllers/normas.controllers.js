@@ -177,7 +177,7 @@ var getByWordKey = /*#__PURE__*/function () {
             return pool.request().input("name", _connection.sql.VarChar, name).query(_querys.queries.getNormaByName);
           case 7:
             result = _context5.sent;
-            res.json(result);
+            res.json(result.recordsets[0]);
             console.log('query:' + _querys.queries.getNormaByName);
             _context5.next = 16;
             break;

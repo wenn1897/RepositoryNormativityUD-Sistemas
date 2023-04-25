@@ -2,6 +2,7 @@
 
 html{
     font-size: 62.5; 
+   
 }
 
 .container-normas{
@@ -10,6 +11,15 @@ html{
     width: 90%;
     //height: 100%;
     margin: auto;
+    z-index: 1;
+    
+    
+}
+
+
+.table{
+    position:relative;
+    
 }
 
 

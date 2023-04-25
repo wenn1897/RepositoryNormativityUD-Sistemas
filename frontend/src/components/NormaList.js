@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Table } from 'react-bootstrap';
 import Norma from './Norma'
 
 import './Normas.scss'
 
-
 export default function NormaList(item) {
 
-    
-    const [data, setdata] = useState(item.item)
+    const [acto, setActor] = useState('Estudiante')
+
+    const data = item.item
     let NormaList;
 
     if(data) {
-        console.log("esta es la data" + JSON.stringify(data))
         NormaList = data.map( (norma)=>{
+
             return(
-               <Norma key={norma.id}
+               <Norma key={norma.ID}
+                      id={norma.ID}
                       num={norma.numero_norma} 
                       tema={norma.tema}
-                      actor={norma.actor}
+                      actor={acto}
                       inicio={norma.fecha_inicio}>
                </Norma> 
             )
@@ -27,7 +28,7 @@ export default function NormaList(item) {
 
     return (
         <div className="container-normas">
-            <Table striped bordered hover>
+            <Table striped bordered hover variant="normal">
                 <thead>
                     <tr>
                         <th>Norma</th>

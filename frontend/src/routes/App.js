@@ -11,12 +11,6 @@ import NormaList from '../components/NormaList';
 //import './styles.scss';
 
 const router = createBrowserRouter(
-    // createRoutesFromElements(
-    //     <Route exact path="/" element={<Search/>} />
-    //     <Route exact path="normas" element={<NormaList/>} />
-    //     <Route exact path="/normas/:id" element={<NormaDetail/>} />
-    //     <Route exact path='*' element={<NotFound/>} /> 
-    // )
     
     [
     {
@@ -27,6 +21,10 @@ const router = createBrowserRouter(
     {
       path: "/normas",
       element: (<NormaList/>),
+    },
+    {
+      path: "/normas/id",
+      element: (<NormaDetail/>),
     },
   ]
   );

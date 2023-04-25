@@ -3,14 +3,20 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-export default function NormaDetail() {
+export default function NormaDetail(norma) {
 
-    const navigate = useNavigate()
     return (
-        <div className="container">
-
-            <h2 className=""> aqui va una norma con su detalle o no ?</h2>
-        </div>
+        <tr className="">
+                <th scope="row">{norma.num}</th>
+                <td className="">{norma.tema}</td>
+                <td className="">{norma.actor}</td>
+                <td className="">{norma.inicio}</td>
+                <td>
+                    <Button variant="outline-secondary" onClick={()=>onEdit(norma.id)}>
+                        <FaEdit />
+                    </Button>
+                </td>
+            </tr> 
     )
 
 }

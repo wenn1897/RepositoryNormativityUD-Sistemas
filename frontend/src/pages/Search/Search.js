@@ -1,47 +1,58 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './search.scss'
 import Logo from '../../assets/logoU.png'
+import { FaSistrix } from "react-icons/fa";
+
+
 import { Button , Table} from 'react-bootstrap';
 
 import NormaList from '../../components/NormaList'
 
 async function getInformation(param){
-    //esta funcion me trae los datos de mi base de datos
-    console.log("realizando peticion")
-     const data  = await axios.post('http://localhost:3000/search', {name: param})
-     const item = data.data.recordset;
-        console.log(JSON.stringify(item));
+    //esta funcion me trae los datos de la base de datos
+    
+     const word= '%' + param + '%'
+     const data  = await axios.post('http://localhost:3000/search', {name: word})
+     const item = data.data;
+     
     return item ;
 }
 
 
-
-
 export default function Search() {
 
-    const [result, setResult] = useState()
+    const [result, setResult] = useState(null)
     const [view, setView] = useState(false)
-    const [find, setFind] = useState(false)
-    const [word, setWord] = useState()
-    const navigate = useNavigate()
+    const [find, setFind] = useState(true)
+    const [word, setWord] = useState('')
 
-     useEffect(
-        async (itemNorma)=> {
-            //console.log("ejecutando useEffect")
-            itemNorma =  await getInformation("%docente%");
+     useEffect( ()=>{
+        const loadData = async (itemNorma)=> {
+            itemNorma =  await getInformation(word);
+
             setResult(itemNorma); 
-            setView(!view);
-            //console.log("palabra buscada: " + word)
+            setView(true); 
             
-            //console.log(JSON.stringify(result))
-        }, []
+            console.log(itemNorma)
+            //console.log("resultado useEffect:  " + JSON.stringify(result))
+        }
+        loadData();
+
+     }, [find]
      );
 
+     function handleChange(value){
+        setWord(value);
+     }
+
+     function onSearch(){
+        setFind(!find);
+     }
+
         return (
-            <div className="">
-    
+            <div className="fondo">
+                {console.log("renderizando componente")}
                 <div className="container-header">
                     <div className="div-image">
                         <img src={Logo} alt="logo universidad francisco jose de caldas"></img>
@@ -50,14 +61,16 @@ export default function Search() {
                         <input type="text"  
                                 placeholder='Escribe aquí...' 
                                 className="inputSearch"
-                                onChange={()=> setWord(word)}
+                                onChange={(e)=>handleChange(e.target.value)}
                                 value= {word} />
                     </div>
                     <div className="btnSearch">
-                        <Button variant="light" onClick={()=> setFind(!find)}><i className="fa fa-search"></i>Buscar</Button>
+                        <form >
+                            <Button variant="light" onClick={()=>onSearch()}><FaSistrix /> Buscar</Button>
+                        </form>
                     </div>
                 </div>
-                { view ? <NormaList item={result}/> :  <div className="loading">Loading...</div>}
+                { view ? <div className="div-body"><NormaList item={result}/></div> : <div className="loading">Loading...</div>}
             </div>
         )
         

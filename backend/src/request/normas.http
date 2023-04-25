@@ -22,7 +22,7 @@ Content-Type: application/json
 
 
 ### get specific norma
-GET {{api}}/100049
+GET {{api}}/2
 
 
 ### update validity norma by id
