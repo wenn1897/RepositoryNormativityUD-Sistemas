@@ -11,26 +11,28 @@ POST {{api}}
 Content-Type: application/json
 
 {
-    "id" : 100049,
+    "id" : 100059,
     "numero_norma": "10011",
     "tipo_norma": 2,
-    "tema": "prueba 1",
-    "actor": "1,2,3",
+    "tema": "prueba 50",
+    "actor": "1 2 3",
     "fecIni" : "24/12/2022",
     "fecFin": ""
 }
 
 
 ### get specific norma
-GET {{api}}/2
+GET {{api}}/100059
 
 
 ### update validity norma by id
-PUT {{api}}/100049
+PUT {{api}}/100059
 Content-Type: application/json
 
 {
-    "fecFin": "01/01/2025"
+    "tema" : "esto no es una prueba",
+    "fecFin": "01/01/2026"
+    
 }
 
 
@@ -39,5 +41,5 @@ POST {{apii}}
 Content-Type: application/json
 
 {
-     "name": "%docente%"
+     "name": "%%"
 }

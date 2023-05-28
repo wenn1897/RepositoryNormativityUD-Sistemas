@@ -19,7 +19,7 @@ export async function getConnection() {
         return pool;
         
     } catch (error) {
-        console.log("PAILA TODO MAL")
+        console.log("No se pudo establecer la conexión")
         console.error(error);
     }
 }

@@ -71,6 +71,24 @@ insert into res_normas values(35,'03 de 2004',2,'Por la cual se interpretan y re
 insert into res_normas values(36,'065 de 2004',2,'Reglamenta condicion de aspirante como estudiante de pregrado','1','38241','')
 insert into res_normas values(37,'007 de 2005',2,'Reglamenta procedimientos para otorgamiento de año savatico de docentes','2 3','38693','')
 
+insert into res_normas values(39, '001115 de 2023', 1, 'Por medio de la cual se otorga la Acreditación en Alta Calidad al Programa de Tecnología en
+Sistematización de Datos articulado en ciclo propedéutico con el Programa de Ingeniería en
+Telemática', '1 2 3', '03/02/2023', '', 'https://www.udistrital.edu.co/sites/default/files/acreditacion/acreditacion-alta-calidad/Res_00115_feb_3_2023_TSD.pdf');
+
+insert into res_normas values(29, '12 de 2022', 2, 'Por el cualse reglamenta el trabajo de gradopara losprogramas de nivel tecnológico j nivel
+profesional (pregrado) de la UniversidadDistrital', '1', '13/12/2022', '', 'https://sgral.udistrital.edu.co/xdata/ca/acu_2022-012.pdf');
+
+---- Especificación de claves foraneas 
+
+ALTER TABLE res_normas
+ADD CONSTRAINT fk_tipo_norma FOREIGN KEY (tipo_norma) REFERENCES tipo_norma(codigo);
+
+
+ALTER TABLE res_normas
+ADD CONSTRAINT fk_actor FOREIGN KEY (actor) REFERENCES actor(codigo);
+
+--- CONSULTAS BASICAS
+
 
 SELECT * FROM RES_NORMAS
 select * from tipo_norma

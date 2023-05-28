@@ -62,11 +62,14 @@ export const updateValidityNorma = async (req, res) => {
     try {
         const {id} = req.params;
         const {fecFin} = req.body;
+        const {tema} = req.body;
+
 
         const pool = await getConnection();
         const result = await pool.request()
         .input("id", sql.Int, id)
         .input("fecFin", sql.VarChar, fecFin)
+        .input("tema", sql.VarChar, tema)
         .query(queries.updateNormaById)
 
         

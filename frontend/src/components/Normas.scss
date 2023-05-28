@@ -16,6 +16,10 @@ html{
     
 }
 
+.container-normas th{
+    text-align: center;    
+}
+
 
 .table{
     position:relative;
@@ -60,3 +64,8 @@ html{
 // .content-table td{
 //     margin: 2rem 0 ;
 // }
+
+.modal{
+    position: relative;
+    z-index: 1;
+}

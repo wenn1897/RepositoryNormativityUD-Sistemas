@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { PureComponent } from 'react';
 import axios from 'axios';
 import './search.scss'
 import Logo from '../../assets/logoU.png'
 import { FaSistrix } from "react-icons/fa";
-
-
 import { Button , Table} from 'react-bootstrap';
 
-import NormaList from '../../components/NormaList'
+import NormaList from '../../components/NormaList';
+import Footer from '../../components/footer/footer'
 
 async function getInformation(param){
     //esta funcion me trae los datos de la base de datos
@@ -15,44 +14,67 @@ async function getInformation(param){
      const word= '%' + param + '%'
      const data  = await axios.post('http://localhost:3000/search', {name: word})
      const item = data.data;
+
+     console.log("holandas" + JSON.stringify(item))
      
     return item ;
 }
 
-
-export default function Search() {
-
-    const [result, setResult] = useState(null)
-    const [view, setView] = useState(false)
-    const [find, setFind] = useState(true)
-    const [word, setWord] = useState('')
-
-     useEffect( ()=>{
-        const loadData = async (itemNorma)=> {
-            itemNorma =  await getInformation(word);
-
-            setResult(itemNorma); 
-            setView(true); 
-            
-            console.log(itemNorma)
-            //console.log("resultado useEffect:  " + JSON.stringify(result))
+class Search extends PureComponent{
+    constructor(props) {
+        super(props);
+        this.listaRef= React.createRef()
+        this.state = {
+            result: null,
+            view: false,
+            find: true,
+            word: '', 
+            flag: false  
         }
-        loadData();
+        this.handleChange = this.handleChange.bind(this);
+        this.onSearch = this.onSearch.bind(this);
+        this.loadData = this.loadData.bind(this);
+        this.update = this.update.bind(this);
+        this.reload = this.reload.bind(this);
+    }
 
-     }, [find]
-     );
+    componentDidMount(){
+        this.update()
+        this.setState({view:true})
+    }
 
-     function handleChange(value){
-        setWord(value);
-     }
+    reload(){
+        console.log('reload en search')
+        this.setState({view: true})
+    }
 
-     function onSearch(){
-        setFind(!find);
-     }
+    async update(){
+        const itemNorma =  await getInformation(this.state.word);
+        this.listaRef.current.setState({ data: itemNorma })
+    }
 
-        return (
+    loadData = async ()=> {
+            const itemNorma =  await getInformation(this.state.word);
+            if(itemNorma){   
+                this.listaRef.current.setState({ data: itemNorma })
+            }
+            this.setState({view:true}) 
+        
+    }
+
+    handleChange(e){
+        this.setState({word: e.target.value});
+    }
+
+    onSearch(){
+        this.setState({view: true});
+        this.loadData()
+    }
+
+    render(){
+        return ( 
             <div className="fondo">
-                {console.log("renderizando componente")}
+                {console.log("rendedrizando search")}
                 <div className="container-header">
                     <div className="div-image">
                         <img src={Logo} alt="logo universidad francisco jose de caldas"></img>
@@ -61,21 +83,22 @@ export default function Search() {
                         <input type="text"  
                                 placeholder='Escribe aquí...' 
                                 className="inputSearch"
-                                onChange={(e)=>handleChange(e.target.value)}
-                                value= {word} />
+                                onChange={(e)=>{this.handleChange(e)}}
+                                value= {this.state.word} />
                     </div>
                     <div className="btnSearch">
                         <form >
-                            <Button variant="light" onClick={()=>onSearch()}><FaSistrix /> Buscar</Button>
+                            <Button variant="light" onClick={()=>this.onSearch()}><FaSistrix /> Buscar</Button>
                         </form>
                     </div>
                 </div>
-                { view ? <div className="div-body"><NormaList item={result}/></div> : <div className="loading">Loading...</div>}
+                { this.state.view ? 
+                    <div className="div-body"><NormaList item={this.state.result} ref={this.listaRef} reload={this.reload}/>
+                </div> : <div className="loading">Loading...</div>}
+                <Footer/>
             </div>
         )
-        
-     
-    
-
+    }
 }
 
+export default Search;

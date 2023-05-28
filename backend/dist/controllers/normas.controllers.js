@@ -124,7 +124,7 @@ var getNormasById = /*#__PURE__*/function () {
 exports.getNormasById = getNormasById;
 var updateValidityNorma = /*#__PURE__*/function () {
   var _ref4 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(req, res) {
-    var id, fecFin, pool, result;
+    var id, fecFin, tema, pool, result;
     return _regenerator["default"].wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
@@ -132,28 +132,29 @@ var updateValidityNorma = /*#__PURE__*/function () {
             _context4.prev = 0;
             id = req.params.id;
             fecFin = req.body.fecFin;
-            _context4.next = 5;
+            tema = req.body.tema;
+            _context4.next = 6;
             return (0, _connection.getConnection)();
-          case 5:
+          case 6:
             pool = _context4.sent;
-            _context4.next = 8;
-            return pool.request().input("id", _connection.sql.Int, id).input("fecFin", _connection.sql.VarChar, fecFin).query(_querys.queries.updateNormaById);
-          case 8:
+            _context4.next = 9;
+            return pool.request().input("id", _connection.sql.Int, id).input("fecFin", _connection.sql.VarChar, fecFin).input("tema", _connection.sql.VarChar, tema).query(_querys.queries.updateNormaById);
+          case 9:
             result = _context4.sent;
             res.json(result);
-            _context4.next = 16;
+            _context4.next = 17;
             break;
-          case 12:
-            _context4.prev = 12;
+          case 13:
+            _context4.prev = 13;
             _context4.t0 = _context4["catch"](0);
             res.status(500);
             res.send(_context4.t0.message);
-          case 16:
+          case 17:
           case "end":
             return _context4.stop();
         }
       }
-    }, _callee4, null, [[0, 12]]);
+    }, _callee4, null, [[0, 13]]);
   }));
   return function updateValidityNorma(_x7, _x8) {
     return _ref4.apply(this, arguments);

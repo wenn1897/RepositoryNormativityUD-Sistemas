@@ -1,0 +1,39 @@
+html{
+    font-size: 62.5; 
+   
+}
+
+.footer{
+    background-color: rgb(189, 7, 7);
+    padding: 0.6rem 2rem;
+    color: white
+}
+
+.content{
+    display: inline-flex;
+    width: 100%;
+}
+
+.content div{
+    width: 50%;
+    padding: 0 1rem;
+}
+
+#name{
+    font-weight: bold;
+}
+
+#user{
+    padding-left: 5rem;
+}
+
+h6 {
+    //font-family: Lora;
+    font-weight: bold;
+}
+
+span{
+    //font-family: Lora;
+    font-size: 0.8rem;
+}
+

@@ -1,80 +1,79 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
-import { Button } from 'react-bootstrap';
-import { FaEdit } from "react-icons/fa";
+import React from 'react';
+import { Button, Modal } from 'react-bootstrap';
+import { FaEdit, FaLink } from "react-icons/fa";
+
 import NormaDetail from '../pages/Normas/NormaDetail'
 import axios from 'axios';
 import './Normas.scss'
+import { PureComponent } from "react";
+
 
 async function getNorma(param){
     //esta funcion me trae los datos de la base de datos
-        
      const data  = await axios.get(`http://localhost:3000/normas/${param}`)
      const item = data.data;
-     
+
     return item ;
 }
 
-export default function Norma(norma) {
+class Norma extends PureComponent{
 
-    const [id, setId] = useState(0);
-    const [data, setData] = useState(true);
+    constructor(props) {
+        super(props);
+        this.detailRef = React.createRef();
 
-    function onEdit(id){
-        console.log("editando norma " + id)
-        setId(id);
+        this.state = {
+            id: 0,
+            data: {},
+            edit: false,
+            update: '',
+            url: ''   
+        }
+        this.onEdit = this.onEdit.bind(this);
     }
 
-    useEffect( ()=>{
-        //console.log("executeUseEffect")
-         const loadData = async (item)=> {
-             item =  await getNorma(id);
+    async onEdit(id){
+           //console.log("realizando peticion")
+           const item = await getNorma(id) ;
+           if(item){
+                this.setState({data: item})
+           } 
+            //console.log("realizando peticion" + JSON.stringify(item))
+            this.props.changeView(true,id)
+    }
 
-             setData(item); 
-             console.log("resultado useEffect:  " + JSON.stringify(item))
-         }
-         loadData();
+    async openUrl(url){
+        // const item = await getNorma(id) ;
+        //    if(item){
+        //         this.setState({url: item.enlace})
+        //    } 
+            console.log("enlace" + JSON.stringify(url))
+    }
 
-      }, [id]);
-
-    //   useEffect( ()=>{
-    //      navigate("/normas/id");
-    //    }, [data])
-
-
-    return (
+    render(){
+        
+        //console.log("data:" + JSON.stringify(this.data))
+        return (
             
-                 <tr className="">
-                     <th scope="row">{norma.num}</th>
-                     <td className="">{norma.tema}</td>
-                     <td className="">{norma.actor}</td>
-                     <td className="">{norma.inicio}</td>
-                     <td>
-                         <Button variant="outline-secondary" onClick={()=>onEdit(norma.id)}>
-                             <FaEdit />
-                         </Button>
-                     </td>
-                 </tr>              
-    )
-    // if(data){
-    //     return (
-            
-    //         <tr className="">
-    //             <th scope="row">{norma.num}</th>
-    //             <td className="">{norma.tema}</td>
-    //             <td className="">{norma.actor}</td>
-    //             <td className="">{norma.inicio}</td>
-    //             <td>
-    //                 <Button variant="outline-secondary" onClick={()=>onEdit(norma.id)}>
-    //                     <FaEdit />
-    //                 </Button>
-    //             </td>
-    //         </tr>              
-    //     )
-    // }else{
-    //     return(
-    //         <NormaDetail norma={data}/>)
-    // }  
-    
-    
+            <tr className="">
+                <th scope="row">{this.props.num}</th>
+                <td className="">{this.props.tema}</td>
+                <td className="">{this.props.actor}</td>
+                <td className="">{this.props.inicio}</td>
+                <td className="">{this.props.final}</td>
+                <td>
+                    <Button variant="outline-secondary" onClick={() => {this.onEdit(this.props.id)}}>
+                        <FaEdit />
+                    </Button>
+                </td>
+                <td>
+                    <Button variant="outline-secondary" onClick={() => {this.openUrl(this.props.url)}}>
+                        <a href={this.props.url} target="_blank"><FaLink/></a>
+                    </Button>    
+                </td> 
+            </tr>                  
+        )
+    }
 }
+
+ export default Norma;

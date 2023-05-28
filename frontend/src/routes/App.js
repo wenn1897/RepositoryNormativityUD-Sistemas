@@ -1,7 +1,7 @@
 import React from 'react';
 //import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Route, Routes, Link, BrowserRouter} from "react-router-dom";
+import { createBrowserRouter, RouterProvider} from "react-router-dom";
 
 import Search from '../pages/Search/Search';
 import NotFound from '../pages/NotFound';
