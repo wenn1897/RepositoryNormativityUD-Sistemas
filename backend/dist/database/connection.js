@@ -46,7 +46,7 @@ function _getConnection() {
           case 8:
             _context.prev = 8;
             _context.t0 = _context["catch"](0);
-            console.log("PAILA TODO MAL");
+            console.log("No se pudo establecer la conexión");
             console.error(_context.t0);
           case 12:
           case "end":

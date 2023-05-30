@@ -1,3 +1,12 @@
+create table actor(codigo int primary key, nombre varchar(255));
+insert into actor values(1,'Estudiante');
+insert into actor values(2,'Docente');
+insert into actor values(3,'Administrativo');
+
+SELECT * FROM ACTOR
+
+-----------------------------------
+
 create table tipo_norma(codigo int primary key, nombre varchar(255));
 
 
@@ -9,111 +18,112 @@ insert into tipo_norma values(5,'Decreto');
 insert into tipo_norma values(6,'Ley');
 insert into tipo_norma values(7,'Comunicado');
 
+SELECT * FROM TIPO_NORMA
+--------------------------------------
 
-create table actor(codigo int primary key, nombre varchar(255));
-insert into actor values(1,'Estudiante');
-insert into actor values(2,'Docente');
-insert into actor values(3,'Administrativo');
+create table res_normas(
+	ID int primary key not null, 
+	numero_norma varchar(20) not null,
+	tipo_norma int not null,
+	tema varchar(255) not null,
+	actor varchar(10) not null,
+	fecha_inicio varchar(10) not null,
+	fecha_final varchar(10),
+	enlace varchar(255)
+);
+
+insert into res_normas values(,'1',02 del 2020,'2','Sistema de admision y selecciones por bolsa','1','44116','','http://www1.udistrital.edu.co:8080/documents/138540/4ad5c37f-86c8-41d8-9eaf-c8d376847424')
+insert into res_normas values(,'2',07 del 2014,'2','Programa académico transitorio como opción de grado para los estudiantes de pregrado','1','14/08/2014','','https://sgral.udistrital.edu.co/xdata/csu/acu_2014-07.pdf')
+insert into res_normas values(,'3',038 de 2015,'2','Reglamentacion trabajo de grado estudiantes de pregrado','1','14/08/2014','','https://sgral.udistrital.edu.co/xdata/ca/acu_2015-038.pdf')
+insert into res_normas values(,'4',426 de 2018,'1','Protocolo para la prevencion y atencion de Violencias Basadas en Genero y Violencia sexual','1 2 3','43202','','https://sgral.udistrital.edu.co/xdata/rec/res_2018-426.pdf')
+insert into res_normas values(,'5',031 de 2014,'2','Por el cual se reglamenta el ejercicio de la inspección y vigilancia de la educación superior','1','25/06/2014','','https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/1420263')
+insert into res_normas values(,'6',03 de 2020,'1','Elección de representantes estudiantiles - consejos curriculares','1','25/06/2020','','http://www1.udistrital.edu.co:8080/documents/138540/905bbae6-f310-4a11-b365-06427a0e6b82')
+insert into res_normas values(,'7',05 de 2020,'1','Modifica electivas a ofertar  Telecomunicaciones','1 2 3','27/08/2020','','http://www1.udistrital.edu.co:8080/documents/138540/68c77d25-005d-4404-8b1f-71a96b75fc5f')
+insert into res_normas values(,'8',02 de 2009,'2','Estimulos economicos a los docentes de carrera por actividades de extensión','2','30/07/2009','','https://sgral.udistrital.edu.co/xdata/csu/acu_2019-001.pdf')
+insert into res_normas values(,'9',08 de 2003,'2','Estatuto general de contratación','2 3','14/08/2003','','https://sgral.udistrital.edu.co/xdata/csu/acu_2003-008.pdf')
+insert into res_normas values(,'10',04 de 2020,'1','Criterios y puntajes de calificación en concursos docentes abreviados -Fac Tecnologica','2 3','13/08/2020','','http://www1.udistrital.edu.co:8080/documents/138540/99e5db44-fe35-4722-88e3-7b6b7e6d6336')
+insert into res_normas values(,'11',27 de 1993,'2','Estatuto estudiantil actualizado (Ago 2019)','1','23/12/1993','','https://sgral.udistrital.edu.co/xdata/csu/acu_1993-027.pdf')
+insert into res_normas values(,'12',004 de 1996,'2','Estatuto academico (Actualizado el 13 de marzo del 2020)','1 2 3','','','https://sgral.udistrital.edu.co/xdata/csu/acu_1996-004.pdf')
+insert into res_normas values(,'13',11 de 2002,'2','Estatuto docente (Actualizado el 13 de marzo del 2020)','2','','','https://sgral.udistrital.edu.co/xdata/csu/acu_2002-011.pdf')
+insert into res_normas values(,'14',003 de 1997,'2','Estatuto general (Actualizado el 13 de marzo del 2020)','1 2 3','35646','','https://sgral.udistrital.edu.co/xdata/csu/acu_1997-003.pdf')
+insert into res_normas values(,'15',132 de 2017,'1','Devolucion de saldos de matriculas y derechos pecuniarios','3','','','https://sgral.udistrital.edu.co/xdata/ca/res_2017-132.pdf')
+insert into res_normas values(,'16',04 de2006,'2','Establece y unifica regimen de liquidación de matriculas para estudiantes','1 3','25/01/2006','','https://sgral.udistrital.edu.co/xdata/csu/acu_2006-004.pdf')
+insert into res_normas values(,'17', Acu 5 de1994,'2','Por el cual se crea la unidad academica y administrativa de la facultad tecnologica','3','22/6/1994','','https://sgral.udistrital.edu.co/xdata/csu/acu_1994-005.pdf')
+insert into res_normas values(,'18',20 de 1994,'2','Reglamentacion de los cursos intermedios','1','22/6/1994','','https://sgral.udistrital.edu.co/xdata/ca/res_1994-020.pdf')
+insert into res_normas values(,'19',02 de 2014,'2','Por medio del cual se suspenden los efectos de los Acuerdos 008 y 009 de 2013, se reabre la participación y discusión de la Comunidad Universitaria sobre las Reformas que la Universidad requiere" (modificacion acu 01 de 2014)','1 2 3','29/05/2014','','https://sgral.udistrital.edu.co/xdata/csu/acu_2014-02.pdf')
+insert into res_normas values(,'20',03 de 2016,'2','Por el cual se establece la oferta del Componente Propedéutico (CP) para los tecnólogos egresados de Instituciones de Educación Superior reconocidas por el MEN ','3','42406','','https://sgral.udistrital.edu.co/xdata/ca/acu_2017-001.pdf')
+insert into res_normas values(,'21',1377 de 2013,'5','Por el cual se reglamenta parcialmente la Ley 1581 de 2012  por la cual se dictan disposiciones generales para la protección de datosersonales','3','27/06/2013','','https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981')
+insert into res_normas values(,'22',01 de 2018,'2','Lineamiento aceditacion de alta calidad y de programas de pegrado','3','43101','','NULL')
+insert into res_normas values(,'23',02 de 2020,'2','Actualizacion acreditacion de alta calidad','3','43837','','https://siteal.iiep.unesco.org/sites/default/files/sit_accion_files/11147.pdf')
+insert into res_normas values(,'24',1280 de 2018,'5','Sistema de aseguramiento  de la alta calidad de la educaicon superior','3','25/07/2018','','https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=80498&dt=S')
+insert into res_normas values(,'25',1295 de 2010,'5','Registro calificado, oferta y desarrollo de programas academicos','3','20/04/2010','','https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/1261393')
+insert into res_normas values(,'26',01 de 2013,'2',' Reglamento Estudiantil de los programas de posgrado de la Facultad Tecnológica','3','14/02/2013','','http://www1.udistrital.edu.co:8080/c/document_library/get_file?uuid=2f1b900b-8ebb-46f4-bf9d-70d54738cab9&groupId=8049431')
+insert into res_normas values(,'27',01 de 2018,'2','Reglamento de funcionamiento de posgrados y la unidad acad¢mica Escuela de estudios avanzados en la Facultad Tecnol6gica','1','26/04/2018','','http://www1.udistrital.edu.co:8080/c/document_library/get_file?uuid=f0253060-864a-4b97-9c25-06a39506d995&groupId=8049431')
+insert into res_normas values(,'28',0058 de 2018,'1','revoca parcialmente resolucion 929 de 2017','3','25/01/2018','','https://minciencias.gov.co/sites/default/files/resolucion_0058_de_2018_por_medio_de_la_cual_se_revoca_parcialmente_la_resolucion_929_de_2017.pdf')
+insert into res_normas values(,'29',12 de 2022,'2','Por el cualse reglamenta el trabajo de gradopara losprogramas de nivel tecnológico j nivel  profesional (pregrado) de la UniversidadDistrital','1','13/12/2022','','https://sgral.udistrital.edu.co/xdata/ca/acu_2022-012.pdf')
+insert into res_normas values(,'30',71 de 2018,'1','Por la cual se fija la escala de viaticos  para empleados publicos de la UDFJC','3','15/05/2018','','http://antiguocidc.udistrital.edu.co/web/documentos/normatividad/normograma/avances/res_2018-071_viaticos_2018.pdf')
+insert into res_normas values(,'31',311 de 2019,'1','se establecen disposiciones y se reglamenta el procedimiento general de solicitud de avances, aprobación, desembolsos y su correspondiente legalización en la UD','3','25/07/2019','','https://sgral.udistrital.edu.co/xdata/rec/res_2019-311.pdf')
+insert into res_normas values(,'32',029 de 2013,'2','Reglamento trabajo de grado para estudiantes de pregrado','2 3','26/11/2013','','http://www1.udistrital.edu.co:8080/documents/14223/2746850/Acuerdo+029+de+2013+Trabajos+de+Grado.pdf')
+insert into res_normas values(,'33',03 de 1998,'2','Condiciones de matricula para estudiantes  que han terminado asignaturas y estan realizando su trabajo de grado','1','20/03/1998','','https://sgral.udistrital.edu.co/xdata/csu/acu_1998-003.pdf')
+insert into res_normas values(,'34',12 de 2002,'2','Se fijan los factores para el reconocimiento y pago de la hora para los docentes que prestan servicios a la Universidad Distrital en la modalidad de vinculación Especial en los programas de pregrado','2','15/11/2002','','https://sgral.udistrital.edu.co/xdata/csu/acu_2002-012.pdf')
+insert into res_normas values(,'35',03 de 2004,'2','Por la cual se interpretan y reglamentan situaciones imprevistas en el reglamento estudiantil  para pregrado y homologacion','1','13/07/2004','','https://sgral.udistrital.edu.co/xdata/ca/acu_2008-012.pdf')
+insert into res_normas values(,'36',06 de 2004,'2','Reglamenta condicion de aspirante como estudiante de pregrado','1','38241','','https://sgral.udistrital.edu.co/xdata/ca/acu_2004-006.pdf')
+insert into res_normas values(,'37',007 de 2005,'2','Reglamenta procedimientos para otorgamiento de año savatico de docentes','2 3','38693','','https://sgral.udistrital.edu.co/xdata/ca/acu_2005-007.pdf')
+insert into res_normas values(,'38',048 del 2011,'1','Aspectos de la formación por ciclos de la Facultad Tecnologica','1 2 3','27/09/2011','','https://sgral.udistrital.edu.co/xdata/ca/res_2011-048.pdf')
+insert into res_normas values(,'39',001115 de 2023,'1','Por medio de la cual se otorga la Acreditación en Alta Calidad al Programa de Tecnología en  Sistematización de Datos articulado en ciclo propedéutico con el Programa de Ingeniería en  Telemática','1 2 3','44987','','https://www.udistrital.edu.co/sites/default/files/acreditacion/acreditacion-alta-calidad/Res_00115_feb_3_2023_TSD.pdf')
 
 
-create table res_normas(codigo int primary key, numero_norma varchar(20), tipo_norma int , tema varchar(255), actor_est int, actor_doc int, actor_adm int, fecha_inicio varchar(10), fecha_final varchar(10));
-insert into res_normas values(1, '02 del 2020', 2, 'Sistema de admision y selecciones por bolsa', '1', '10/12/2020', '');
-insert into res_normas values(2, '07 del 2014', 2, '02/2020 Programa academico transitorio como opcion de grado', '1', '14/08/2014', '');
-insert into res_normas values(3, '038 de 2015', 2, 'Reglamentacion trabajo de grado estudiantes de pregrado', '1', '14/08/2014', '');
-insert into res_normas values(4, '426 de 2018', 1, '"Protocolo" para la prevencion y atencion de Violencias Basadas en Genero y Violencia sexual', '1 2 3', '4/12/2018', '');
+---- Especificación de claves foraneas 
 
-insert into res_normas values(5, '031 de 2014', 2, 'Reglamentacion trabajo de grado estudiantes de pregrado', '1', '25/06/2014', '7/28/2015');
-insert into res_normas values(6, '03 de 2020', 1, 'Elección de representantes estudiantiles - consejos curriculares', '1', '25/06/2020', '');
-insert into res_normas values(7, '05 de 2020', 1, 'Modifica electivas a ofertar  Telecomunicaciones', '1 2 3', '27/08/2020', '');
-insert into res_normas values(8, '02 de 2009', 2, 'Estimulos economicos a los docentes de carrera por actividades de extensión', '2', '30/07/2009', '');
-insert into res_normas values(9, '08 de 2003', 2, 'Estatuto general de contratación', '2 3', '14/08/2003', '');
+ALTER TABLE res_normas
+ADD CONSTRAINT fk_tipo_norma FOREIGN KEY (tipo_norma) REFERENCES tipo_norma(codigo);
 
-insert into res_normas values(10, '04 de 2020', 1, 'Criterios y puntajes de calificación en concursos docentes abreviados -Fac Tecnologica', '2 3', '13/08/2020','');
-insert into res_normas values(11, '27 de 1993', 2, 'Estatuto estudiantil', '1', '23/12/1993', '');
-insert into res_normas values(12, '004 de 1996', 2, 'Estatuto academico', '1 2 3', '', '');
-insert into res_normas values(13, '11 de 2002', 2, 'Estatuto docente', '2', '', '');
-insert into res_normas values(14, '003 de 1997', 2, 'Estatuto general', '1 2 3', '8/4/1997', '');
-insert into res_normas values(15, '132 de 2017', 1, 'Devolucion de saldos de matriculas y derechos pecuniarios', '3', '', '');
-insert into res_normas values(16, '04 de2006', 2, 'Establece y unifica regimen de liquidación de matriculas para estudiantes', '1 3', '25/01/2006', '');
-insert into res_normas values(17, ' Acu 5 de1994', 2, 'Se crea unidad academica y administrativa Fac. Tecnologica', '3', '22/6/1994', '');
-insert into res_normas values(18, '20 de 1994', 2, 'Reglamentacion de los cursos intermedios', '1', '22/6/1994', '');
 
-insert into res_normas values(17, '02 de 2019', 2, 'Reglamentación de los incentivos a los estudiantes de pregrado y postgrado definidos en el Acuerdo citado - Modificado por el Acuerdo 002 de mayo 14 de 2019.', '1', '28/11/2013', '');
-insert into res_normas values(18,'01 de 2014',2,'"Por medio del cual se suspenden los efectos de los Acuerdos 008 y 009 de 2013, se reabre la participación y discusión de la Comunidad Universitaria sobre las Reformas que la Universidad requiere y se propician escenario democráticos con estos propósitos y se toman otras medidas"','1 2 3','14/05/2014','')
-insert into res_normas values(19,'04 de 2014 ',2,'"Por medio del cual se suspenden los efectos de los Acuerdos 008 y 009 de 2013, se reabre la participación y discusión de la Comunidad Universitaria sobre las Reformas que la Universidad requiere y se propician escenario democráticos con estos propósitos y se toman otras medidas" (modificacion acu 01 de 2014)','1 2 3','29/05/2014','')
-insert into res_normas values(20,'03 de 2016',2,'Por el cual se establece la oferta del Componente Propedéutico (CP) para los tecnólogos egresados de Instituciones de Educación Superior reconocidas por el Ministerio de Educación Nacional que aspiren a programas de Ingeniería por ciclos de la Facultad Tecnológica de la Universidad Distrital Francisco José de Caldas','3','42406','')
-insert into res_normas values(21,'1377 de 2013',5,'Por el cual se reglamenta parcialmente la Ley 1581 de 2012  por la cual se dictan disposiciones generales para la protección de datosersonales','3','27/06/2013','')"
-insert into res_normas values(22,'01 de 2018',2,'Lineamiento aceditacion de alta calidad y de programas de pegrado','3','01/01/2018','')
-insert into res_normas values(23,'02 de 2020',2,'Actualizacion acreditacion de alta calidad','3','01/07/2020','')
-insert into res_normas values(24,'1280 de 2018',5,'Sistema de aseguramiento  de la alta calidad de la educaicon superior','3','25/07/2018','')
-insert into res_normas values(25,'1295 de 2010',5,'Registro calificado, oferta y desarrollo de programas academicos','3','20/04/02010','')
-insert into res_normas values(26,'01 de 2013',2,' Reglamento Estudiantil de los programas de posgrado de la Facultad Tecnológica','3','14/02/2013','')
-insert into res_normas values(27,'01 de 2018',2,'Reglamento de funcionamiento de posgrados y la unidad acad¢mica Escuela de estudios avanzados en la Facultad Tecnol6gica','1','26/04/2018','')
-insert into res_normas values(28,'0058 de 2018',1,'revoca parcialmente resolucion 929 de 2017','3','25/01/2018','')
-insert into res_normas values(29,'029 de 2017',1,'Indexacion de revistas especializadas  de Ciencia Tecnologia e Innvocaion publindex','2 3','15/09/2017','')
-insert into res_normas values(30,'71 de 2018',1,'Por la cual se fija la escala de viaticos  para empleados publicos de la UDFJC','3','15/05/2018','')
-insert into res_normas values(31,'311 de 2019',1,'se establecen disposiciones y se reglamenta el procedimiento general de solicitud de avances, aprobación, desembolsos y su correspondiente legalización en la Universidad Distrito' Francisco José de Caldas','3','25/07/2019','')
-insert into res_normas values(32,'029 de 2013',2,'Reglamento trabajo de grado para estudiantes de pregrado','2 3','26/11/2013','')
-insert into res_normas values(33,'03 de 1998',2,'Condiciones de matricula para estudiantes  que han terminado asignaturas y estan realizando su trabajo de grado','1','20//03/1998','')
-insert into res_normas values(34,'12 de 2002',2,'se fijan los factores para el reconocimiento y pago de la hora para los docentes que prestan servicios a la Universidad Distrital en la modalidad de vinculación Especial en los programas de pregrado','2','15/11/2002','')
-insert into res_normas values(35,'03 de 2004',2,'Por la cual se interpretan y reglamentan situaciones imprevistas en el reglamento estudiantil  para pregrado y homologacion','1','13/07/2004','')
-insert into res_normas values(36,'065 de 2004',2,'Reglamenta condicion de aspirante como estudiante de pregrado','1','38241','')
-insert into res_normas values(37,'007 de 2005',2,'Reglamenta procedimientos para otorgamiento de año savatico de docentes','2 3','38693','')
-insert into res_normas values(38,'09 de 2006',2,'Por el cual se implementa el Sistema de Créditos Académicos en la Universidad Distrital Francisco José de Caldas"','1 2 3','39060','')
-insert into res_normas values(39,'07 de 2009',2,'Modifica y reglamenta la Prueba Academica para estudiantes','1','16/12/2009','')
-insert into res_normas values(40,'08 de 2010',2,'Politicas para incorporar  planes de estudio en los proyectos curriculares  de pregrado de la UD  conducentes a la formacion de competencias basicas comunicativas en segunda lengua ','2','40218','')
-insert into res_normas values(41,'15 de 2010',2,'se establecen y reglamentan las Opciones de Trabajo de Grado para los proyectos curriculares de pregrado de la Universidad Distrital Francisco Jose de Caldas','1','13/07/2010','')
-insert into res_normas values(42,'03 de 2011',2,'Reglamenta la permanencia, rendimiento academico y  otras situaciones academicas de estudiantes de pregrado','1','40763','')
-insert into res_normas values(43,'04 de 2011',2,'Modifica acu 03 de 2011: Reglamenta la permanencia, rendimiento academico y  otras situaciones academicas de estudiantes de pregrado','1','40855','')
-insert into res_normas values(44,'04 de 2012',2,'Estatuto de propiedad intelectual','1 2 3','41223','')
-insert into res_normas values(45,'08 de 2013',2,'Estatuto academico','1 2 3','28/11/2013','')
-insert into res_normas values(46,'28 de 2013',2,'Insentivos ECAES','1','26/11/2013','')
-insert into res_normas values(47,'01 de 2018',2,'Reglamente grado postumo','1 3','27/02/2018','')
-insert into res_normas values(48,'04 de 2018',2,'criterios y procedimientos de las transferencias internas y externas en los programas de pre grado de la Universidad Distrito','1 3','16/10/2018','')
-insert into res_normas values(49,'01 de 2014',2,'se reglamentan algunos procedimientos para los trabajos de grado que no fueron establecidos en el Acuerdo 031 de 2014 del Consejo Académico de la Universidad Distrital Francisco José de Caída','1 2','17/12/2014','')
-insert into res_normas values(50,'01 de 2017',2,'Se establece la oferta del componente propedeutico para tecnologos egresados de otras IES','1','20/02/2017','')
-insert into res_normas values(51,'01 de 2015',2,'Sistema General de admisiones programas de ingenieria de la Fac. Tecnologica','1','22/01/2015','')
-insert into res_normas values(52,'01 de 2021',2,'Se reglamentan las actividades de Extensión y Proyección Social en la Facultad Tecnológica','1 2 3','44415','')
-insert into res_normas values(53,'02 de 2015',2,'Precisiones acu 01 de 2015 - Adminsiones programas de ingenieria','1','27/07/2015','')
-insert into res_normas values(54,'04 de 2005',2,'Solicitud de practicas academicas Fac. Tecnologica','1','28/07/2005','')
+ALTER TABLE res_normas
+ADD CONSTRAINT fk_actor FOREIGN KEY (actor) REFERENCES actor(codigo);
 
+--- CONSULTAS BASICAS
+
+
+SELECT * FROM RES_NORMAS
+select * from tipo_norma
 
 
 ------ FUNCION BUSQUEDA POR TEMA
 
-select res_normas.numero_norma, res_tipo_norma.nombre, res_normas.tema, res_normas.fecha_inicio
-from res_normas, res_tipo_norma
-where res_normas.tipo_norma = res_tipo_norma.codigo and res_normas.tema like '%admision%';
+select n.numero_norma, t.nombre, n.tema, n.fecha_inicio
+from res_normas  n, tipo_norma  t
+where n.tipo_norma = t.codigo and n.tema like '%admision%';
 
-
-select t1.numero_norma, t2.nombre, t1.tema, t1.fecha_inicio
-from res_normas as t1, res_tipo_norma as t2
-where t1.tipo_norma = t2.codigo and t1.tema like '%admision%';
 
 
 ---------- FUNCION BUSQUEDA POR TEMA Y NUMERO DE NORMA (propuesta)
 
-select t1.numero_norma, t2.nombre, t1.tema, t1.fecha_inicio
-from res_normas as t1, res_tipo_norma as t2
-where t1.tipo_norma = t2.codigo and (t1.tema like '%admision%' or t1.numero_norma like '%04 de 2005%');
+select n.numero_norma, t.nombre, n.tema, n.fecha_inicio
+from res_normas  n, tipo_norma  t
+where n.tipo_norma = t.codigo and (n.tema like '%admision%' or n.numero_norma like '%04 de 2005%');
 
 
 ---------- FUNCION BUSQUEDA POR ACTOR_EST
 
-select t1.numero_norma, t2.nombre, t1.tema, t1.fecha_inicio
-from res_normas as t1, res_tipo_norma as t2
-where t1.actor_est = 1
+select n.numero_norma, t.nombre, n.tema, n.fecha_inicio
+from res_normas  n, tipo_norma  t
+where n.actor = '1' and t.codigo= n.tipo_norma
 
 ---------- FUNCION BUSQUEDA POR ACTOR_DOC
 
-select t1.numero_norma, t2.nombre, t1.tema, t1.fecha_inicio
-from res_normas as t1, res_tipo_norma as t2
-where t1.actor_doc = 1
+select n.numero_norma, t.nombre, n.tema, n.fecha_inicio
+from res_normas  n, tipo_norma  t
+where n.actor = '2' and t.codigo= n.tipo_norma
 
 ---------- FUNCION BUSQUEDA POR ACTOR_ADM
 
-select t1.numero_norma, t2.nombre, t1.tema, t1.fecha_inicio
-from res_normas as t1, res_tipo_norma as t2
-where t1.actor_adm = 1
+select n.numero_norma, t.nombre, n.tema, n.fecha_inicio
+from res_normas  n, tipo_norma  t
+where n.actor = '3' and t.codigo= n.tipo_norma
 
 
+------ FUNCION BUSQUEDA POR NO VIGENTE
+select n.numero_norma, t.nombre, n.tema, n.fecha_inicio, n.fecha_final
+from res_normas  n, tipo_norma  t
+WHERE n.fecha_final <> '' and t.codigo= n.tipo_norma
